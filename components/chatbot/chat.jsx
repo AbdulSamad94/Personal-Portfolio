@@ -4,23 +4,31 @@ import { Bot, X, Send, MessageCircle } from "lucide-react";
 
 const parseMessageText = (text) => {
   if (!text) return text;
-  text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-  text = text.replace(/^• (.+)$/gm, "<li>$1</li>");
-  text = text.replace(
+
+  let safe = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+  safe = safe.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  safe = safe.replace(/^• (.+)$/gm, "<li>$1</li>");
+  safe = safe.replace(
     /^\*\*(.*?):\*\*(.*)$/gm,
     '<h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-1 mt-2">$1:</h4><p class="mb-2">$2</p>'
   );
-  text = text.replace(
+  safe = safe.replace(
     /(<li>.*<\/li>\s*)+/gs,
     '<ul class="list-disc list-inside mb-3 space-y-1 ml-2">$&</ul>'
   );
-  text = text.replace(
-    /(https?:\/\/[^\s<>]+)/g,
+  safe = safe.replace(
+    /(https?:\/\/[^\s&lt;&quot;&#039;]+)/g,
     '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-orange-500 hover:text-orange-600 underline break-all">$1</a>'
   );
-  text = text.replace(/\n\n/g, "<br><br>");
-  text = text.replace(/\n/g, "<br>");
-  return text;
+  safe = safe.replace(/\n\n/g, "<br><br>");
+  safe = safe.replace(/\n/g, "<br>");
+  return safe;
 };
 
 const SUGGESTIONS = [
