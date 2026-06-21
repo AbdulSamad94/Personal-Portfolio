@@ -1,45 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import Image from "next/image";
 import {
   User2,
   MailIcon,
   HomeIcon,
-  PhoneCall,
   GraduationCap,
   Calendar,
   Briefcase,
-  Code,
-  Zap,
-  Lock,
-  Database,
-  Bot,
 } from "lucide-react";
-
-import {
-  FaReact,
-  FaPython,
-  FaHtml5,
-  FaCss3Alt,
-  FaGitAlt,
-  FaGithub,
-  FaNpm,
-} from "react-icons/fa";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import {
-  SiTypescript,
-  SiJavascript,
-  SiMongodb,
-  SiPostgresql,
-  SiFastapi,
-  SiExpress,
-  SiShadcnui,
-  SiSupabase,
-  SiVercel,
-  SiNetlify,
-  SiPydantic,
-} from "react-icons/si";
-import { DiNodejs } from "react-icons/di";
-import { TbBrandFramerMotion } from "react-icons/tb";
 
 import SkillsMarquee from "./skills-marquee";
 
@@ -49,8 +16,8 @@ const info = [
     text: "Abdul Samad Siddiqui",
   },
   {
-    icon: <PhoneCall size={20} />,
-    text: "+92 3132959809",
+    icon: <HomeIcon size={20} />,
+    text: "Karachi, Pakistan",
   },
   {
     icon: <MailIcon size={20} />,
@@ -62,11 +29,11 @@ const info = [
   },
   {
     icon: <GraduationCap size={20} />,
-    text: "HSC Computer Science",
+    text: "GIAIC — AI-201 → AI-202 → AI-301",
   },
   {
-    icon: <HomeIcon size={20} />,
-    text: "Karachi, Pakistan",
+    icon: <Briefcase size={20} />,
+    text: "Available for freelance",
   },
 ];
 
@@ -76,12 +43,12 @@ const qualifications = [
     data: [
       {
         school: "Jinnah Govt. Boys College",
-        qualification: "Higher Secondary (HSC) - Computer Science",
+        qualification: "Higher Secondary (HSC) — Computer Science",
         year: "2024 - Present",
       },
       {
         school: "Bilal Public School",
-        qualification: "Secondary School Certificate (SSC) - Computer Science",
+        qualification: "Secondary School Certificate (SSC) — Computer Science",
         year: "2022 - 2024",
       },
     ],
@@ -90,15 +57,15 @@ const qualifications = [
     title: "Experience",
     data: [
       {
-        Company: "Freelance Fiverr/Upwork",
-        role: "Full Stack AI Developer",
-        qualification: "Full-time",
-        year: "June 2024 - Present",
+        Company: "Freelance — Fiverr",
+        role: "Agentic AI Developer",
+        qualification: "Available for hire",
+        year: "2024 - Present",
       },
       {
-        Company: "Governor House Sindh",
-        role: "AI Agent Developer Student",
-        qualification: "Part-time",
+        Company: "GIAIC — Governor's Initiative",
+        role: "Cloud-Native Agentic AI Developer",
+        qualification: "AI-201 → AI-202 → AI-301",
         year: "2024 - Present",
       },
     ],
@@ -139,13 +106,13 @@ const About = () => {
                   <div className="flex justify-center items-center flex-col text-center xl:text-left">
                     <h3 className="h3 mb-4 text-center">Personal Info</h3>
                     <p className="subtitle w-auto mx-auto xl:mx-0 text-center">
-                      I'm a passionate full-stack developer and AI enthusiast
-                      based in Karachi, Pakistan. With expertise spanning modern
-                      web technologies and cutting-edge AI development, I craft
-                      innovative digital solutions that blend performance with
-                      user experience. My journey involves building scalable
-                      applications using the latest frameworks and exploring the
-                      potential of AI agents and automation.
+                      Self-taught Agentic AI Developer from Karachi, Pakistan.
+                      I build production-grade multi-agent systems and
+                      full-stack applications for international clients.
+                      Currently on the GIAIC Cloud-Native Agentic AI Developer
+                      roadmap, working with OpenAI Agents SDK, Claude Agent
+                      SDK, FastAPI, and RAG pipelines. Available for freelance
+                      — agentic AI systems, full-stack apps, and n8n automation.
                     </p>
                     {/* Icons */}
                     <div className="grid xl:place-items-start grid-cols-2 text-wrap text-center gap-x-10 gap-y-4 mb-12 mt-10">

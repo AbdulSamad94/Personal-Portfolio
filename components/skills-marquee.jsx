@@ -1,85 +1,174 @@
 "use client";
-import { useMemo } from "react";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  Bot,
+  Database,
+  Monitor,
+  Server,
+  ShieldCheck,
+  Cloud,
+  Wrench,
+  Layers,
+} from "lucide-react";
 
-const defaultSkills = [
-  { name: "TypeScript", icon: "/tech-logos/typescript.png" },
-  { name: "JavaScript", icon: "/tech-logos/js.png" },
-  { name: "React", icon: "/tech-logos/react.png" },
-  { name: "Next.js", icon: "/tech-logos/nextjs.png" },
-  { name: "TailwindCSS", icon: "/tech-logos/tailwind.png" },
-  { name: "Python", icon: "/tech-logos/python.png" },
-  { name: "FastAPI", icon: "/tech-logos/fastapi.png" },
-  { name: "Node.js", icon: "/tech-logos/nodejs.png" },
-  { name: "PostgreSQL", icon: "/tech-logos/postgresql.png" },
-  { name: "Supabase", icon: "/tech-logos/supabase.png" },
-  { name: "NeonDB", icon: "/tech-logos/neondb.png" },
-  { name: "Drizzle ORM", icon: "/tech-logos/drizzle.png" },
-  { name: "Next Auth", icon: "/tech-logos/nextauth.png" },
-  { name: "Clerk Auth", icon: "/tech-logos/clerk.png" },
-  { name: "MongoDB", icon: "/tech-logos/mongodb.png" },
-  { name: "ShadCN/UI", icon: "/tech-logos/shadcn.png" },
-  { name: "Motion", icon: "/tech-logos/motion.png" },
-  { name: "Git", icon: "/tech-logos/git.png" },
-  { name: "n8n", icon: "/tech-logos/n8n.png" },
-  { name: "GitHub", icon: "/tech-logos/github.png" },
-  { name: "Vercel", icon: "/tech-logos/vercel.png" },
+const skillCategories = [
+  {
+    title: "AI & Agents",
+    icon: Bot,
+    skills: [
+      "OpenAI Agents SDK",
+      "Claude Agent SDK",
+      "MCP Server SDK",
+      "Google ADK",
+      "n8n",
+      "FlowiseAI",
+    ],
+  },
+  {
+    title: "Vector DB & RAG",
+    icon: Layers,
+    skills: ["Qdrant Cloud", "Gemini Embeddings", "OpenAI Embeddings"],
+  },
+  {
+    title: "Frontend",
+    icon: Monitor,
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "ShadCN UI",
+      "Docusaurus",
+    ],
+  },
+  {
+    title: "Backend",
+    icon: Server,
+    skills: ["FastAPI", "Python", "Node.js", "Express.js"],
+  },
+  {
+    title: "Database & ORM",
+    icon: Database,
+    skills: ["PostgreSQL", "NeonDB", "Drizzle ORM", "MongoDB", "Supabase"],
+  },
+  {
+    title: "Auth",
+    icon: ShieldCheck,
+    skills: ["Better Auth", "NextAuth", "OAuth 2.0", "Clerk"],
+  },
+  {
+    title: "Deployment",
+    icon: Cloud,
+    skills: ["Vercel", "Netlify", "GitHub Actions"],
+  },
 ];
 
-export default function SkillsMarquee({ duration = 25, mobileDuration = 15 }) {
-  const prefersReducedMotion = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }, []);
+const developerTools = ["Claude Code", "OpenAI Codex"];
 
-  // Duplicate once for seamless loop
-  const skills = useMemo(() => [...defaultSkills, ...defaultSkills], []);
+const cardVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut", delay: i * 0.06 },
+  }),
+};
 
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.88 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.25 } },
+};
+
+const chipContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04 } },
+};
+
+export default function SkillsMarquee() {
   return (
-    <section className="w-full py-12 md:py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-          Skills & Technologies
-        </h2>
-
-        <div
-          className="overflow-hidden w-full"
-          style={{
-            "--duration": prefersReducedMotion ? "0s" : `${duration}s`,
-            "--mobile-duration": prefersReducedMotion
-              ? "0s"
-              : `${mobileDuration}s`,
-          }}
-        >
-          <div
-            className={`flex gap-20 w-max marquee-content mt-16 ${
-              prefersReducedMotion ? "animate-none" : ""
-            }`}
-          >
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center gap-8 min-w-[100px]"
-              >
-                {skill.icon.startsWith("/") ? (
-                  <Image
-                    src={skill.icon}
-                    alt={skill.name}
-                    width={90}
-                    height={90}
-                    className="w-[80px] h-[80px]"
-                  />
-                ) : (
-                  skill.icon
-                )}
-                <span className="text-large font-bold text-center whitespace-nowrap">
-                  {skill.name}
-                </span>
+    <div className="py-6 text-left">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {skillCategories.map((category, i) => {
+          const Icon = category.icon;
+          return (
+            <motion.div
+              key={category.title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="rounded-xl border border-border bg-zinc-50 dark:bg-card p-4 hover:border-primary/40 transition-colors duration-200"
+            >
+              {/* Category header */}
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <p className="text-xs font-bold uppercase tracking-widest text-foreground">
+                  {category.title}
+                </p>
               </div>
-            ))}
+
+              {/* Skill chips */}
+              <motion.div
+                className="flex flex-wrap gap-1.5"
+                variants={chipContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {category.skills.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    variants={chipVariants}
+                    className="text-xs font-medium px-2.5 py-1 rounded-md border border-border bg-white dark:bg-background text-muted-foreground hover:border-primary/50 hover:text-primary transition-colors duration-150 cursor-default"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          );
+        })}
+
+        {/* Developer Tools — spans full width */}
+        <motion.div
+          custom={skillCategories.length}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="sm:col-span-2 rounded-xl border border-dashed border-border bg-zinc-50 dark:bg-card p-4"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-7 h-7 rounded-lg bg-zinc-200 dark:bg-zinc-700 flex items-center justify-center shrink-0">
+              <Wrench className="w-3.5 h-3.5 text-muted-foreground" />
+            </div>
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+              Tools I Work With Daily
+            </p>
           </div>
-        </div>
+          <motion.div
+            className="flex flex-wrap gap-1.5"
+            variants={chipContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {developerTools.map((tool) => (
+              <motion.span
+                key={tool}
+                variants={chipVariants}
+                className="text-xs font-medium px-2.5 py-1 rounded-md border border-dashed border-border bg-white dark:bg-background text-muted-foreground hover:border-primary/50 hover:text-primary transition-colors duration-150 cursor-default"
+              >
+                {tool}
+              </motion.span>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -5,11 +5,12 @@ const Footer = () => {
     <footer className="bg-secondary py-12">
       <div className="container mx-auto">
         <div className="flex flex-col justify-between items-center">
-          <div className="flex gap-x-6 mx-auto lg:mx-3 mb-4">
-            <Social iconsStyle="text-primary dark:text-white/70 text-[20px] hover:text-white dark:hover:text-primary transition-all" />
-          </div>
+          <Social
+            iconsStyle="text-primary dark:text-white/70 text-[20px] hover:text-white dark:hover:text-primary transition-all"
+            containerStyles="flex justify-center gap-x-5 mb-4"
+          />
           <p className="text-muted-foreground text-center">
-            Copyright &copy; Abdul Samad. 2025 All rights reserved.
+            Copyright &copy; Abdul Samad. 2026 All rights reserved.
           </p>
         </div>
       </div>

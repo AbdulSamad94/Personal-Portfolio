@@ -16,12 +16,9 @@ const ContactPage = () => {
             </div>
             <h1 className="h1 max-w-md mb-8">Let's Work Together.</h1>
             <p className="max-w-[400px] subtitle">
-              I'm always open to discussing new projects, collaborations, or any
-              inquiries related to web development. Whether you need a custom
-              web application, an e-commerce solution, or a modern UI/UX design,
-              feel free to reach out. You can contact me via email, social
-              media, or the form below. I'll get back to you as soon as
-              possible! Looking forward to working together. 🚀
+              Open to freelance work — agentic AI systems, full-stack
+              applications, and n8n automation. If you have a project in mind,
+              send a message and I will get back to you promptly.
             </p>
           </div>
           {/* Img */}
