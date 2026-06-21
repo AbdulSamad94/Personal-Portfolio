@@ -2,13 +2,22 @@
 
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 const reviewsData = [
+  {
+    avatar: "/reviews/carercore-client.jpg",
+    name: "Haris Shaan",
+    job: "Repeat Client · Fiverr, UK",
+    review:
+      "Fantastic to work with Abdul again on our web development. He’s very detailed oriented and exceeded our expectations. Great project management skills for this phase.",
+    rating: 5,
+  },
   {
     avatar:
       "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/6499329eb4677991d6975a9392e8a471-660592091737997960.045662/8D02F39D-05D6-4B1F-A140-48EE55B2EF7E",
     name: "Ronnie Perry",
-    job: "Fiverr",
+    job: "Fiverr, UK",
     review:
       "Abdul did an exceptional job on our project. His understanding and ability to meet our company’s project goals were beyond expectations. We feel very comfortable and excited to work with him more in the future.",
     rating: 5,
@@ -16,18 +25,9 @@ const reviewsData = [
   {
     avatar: "/reviews/avatar-3.png",
     name: "Evey Anderson",
-    job: "Furniture Designer",
+    job: "Fiverr, Canada",
     review:
       "I'm not a tech person, but Abdul made the entire process easy. He explained everything clearly and delivered a clean, fast website for our business. 10/10 experience!",
-    rating: 5,
-  },
-  {
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    name: "Thomas Richardson",
-    job: "Engineer",
-    review:
-      "Abdul's AI knowledge is way ahead of his age. He helped us prototype an internal automation tool using the OpenAI Agent SDK — super impressive work!",
     rating: 5,
   },
 ];
@@ -47,8 +47,12 @@ const Reviews = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {reviewsData.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: index * 0.12 }}
               className="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-orange-100 dark:border-gray-700 h-full flex flex-col"
             >
               {/* Quote Icon */}
@@ -101,11 +105,9 @@ const Reviews = () => {
               <div className="mt-6 pt-4 border-t border-orange-100 dark:border-gray-700">
                 <div className="w-12 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mx-auto"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* Additional decorative elements */}
       </div>
     </section>
   );

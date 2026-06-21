@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
+import OpenSource from "@/components/OpenSource";
 import Reviews from "@/components/Reviews";
 import Cta from "@/components/Cta";
 
@@ -20,7 +21,10 @@ export default function Home() {
       <section className="mt-32">
         <Work />
       </section>
-      <section className="20">
+      <section className="mt-20">
+        <OpenSource />
+      </section>
+      <section className="mt-20">
         <Reviews />
       </section>
       <section>

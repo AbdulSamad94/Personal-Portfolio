@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
     const body = await request.json();
-    console.log("Raw request body:", body);
 
     const message = body.message;
     if (!message) {
@@ -16,19 +15,14 @@ export async function POST(request) {
     const pythonBackendUrl = process.env.NEXT_PUBLIC_PYTHON_BACKEND_URL;
     const backendEndpoint = `${pythonBackendUrl}/chat`;
 
-    console.log(`Forwarding message to Python backend: ${message}`);
-    console.log(`Backend URL: ${backendEndpoint}`);
-
     const backendResponse = await fetch(backendEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, session_id: body.session_id || null }),
       signal: AbortSignal.timeout(30000),
     });
-
-    console.log("Backend response status:", backendResponse.status);
 
     if (!backendResponse.ok) {
       let errorData;
@@ -44,15 +38,12 @@ export async function POST(request) {
     }
 
     const data = await backendResponse.json();
-    console.log("Received response from Python backend:", data);
 
     return NextResponse.json(
-      { response: data.response },
+      { response: data.response, session_id: data.session_id },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error in Next.js API route:", error);
-
     if (error.name === "AbortError") {
       return NextResponse.json(
         { error: "Request timeout - backend took too long to respond" },

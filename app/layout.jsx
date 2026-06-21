@@ -15,9 +15,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Abdul Samad Siddiqui | Full Stack Developer | AI & Web Technologies Expert",
+  title: "Abdul Samad Siddiqui | Agentic AI Developer — Karachi, Pakistan",
   description:
-    "Abdul Samad Siddiqui is a skilled Full Stack Developer specializing in modern web technologies and AI development. Passionate about creating innovative, scalable solutions with Next.js, React, TypeScript, and cutting-edge AI tools.",
+    "Abdul Samad Siddiqui is a self-taught Agentic AI Developer building production-grade multi-agent systems and full-stack applications. Specializing in OpenAI Agents SDK, Claude Agent SDK, Next.js, FastAPI, and RAG pipelines.",
   icons: {
     icon: "/logo.png",
   },
@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="beforeInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
