@@ -7,7 +7,7 @@ const DevImg = ({ imgSrc, containerStyles }) => {
       <Image
         className="mt-8 pr-14"
         src={imgSrc}
-        alt="my-img"
+        alt="Abdul Samad Siddiqui — Full Stack AI Agent Developer"
         priority
         fill
         draggable={false}

@@ -2,6 +2,21 @@ import React from "react";
 import Form from "@/components/Form";
 import { MailIcon, HomeIcon, PhoneCall } from "lucide-react";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Abdul Samad Siddiqui — Full Stack AI Agent Developer available for freelance work in agentic AI systems, full-stack applications, and n8n automation.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+  },
+  openGraph: {
+    title: "Contact | Abdul Samad Siddiqui",
+    description:
+      "Open to freelance work — agentic AI systems, full-stack applications, and n8n automation. Send a message and I'll get back promptly.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+  },
+};
+
 const ContactPage = () => {
   return (
     <section>
