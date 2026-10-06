@@ -22,6 +22,7 @@ const skillCategories = [
       "Google ADK",
       "n8n",
       "FlowiseAI",
+      "LLM Tool Calling",
     ],
   },
   {
@@ -60,7 +61,12 @@ const skillCategories = [
   {
     title: "Deployment",
     icon: Cloud,
-    skills: ["Vercel", "Netlify", "GitHub Actions"],
+    skills: ["Docker", "AWS", "Vercel", "Redis", "GitHub Actions"],
+  },
+  {
+    title: "Testing",
+    icon: ShieldCheck,
+    skills: ["Playwright", "Jest", "Vitest"],
   },
 ];
 

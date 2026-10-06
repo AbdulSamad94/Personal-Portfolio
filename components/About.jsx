@@ -4,36 +4,22 @@ import {
   MailIcon,
   HomeIcon,
   GraduationCap,
-  Calendar,
   Briefcase,
 } from "lucide-react";
 
 import SkillsMarquee from "./skills-marquee";
 
 const info = [
+  { icon: <User2 size={20} />, text: "Abdul Samad Siddiqui" },
+  { icon: <HomeIcon size={20} />, text: "Karachi, Pakistan" },
+  { icon: <MailIcon size={20} />, text: "abdulsamadwork109@gmail.com" },
   {
-    icon: <User2 size={20} />,
-    text: "Abdul Samad Siddiqui",
-  },
-  {
-    icon: <HomeIcon size={20} />,
-    text: "Karachi, Pakistan",
-  },
-  {
-    icon: <MailIcon size={20} />,
-    text: "abdulsamadwork109@gmail.com",
-  },
-  {
-    icon: <Calendar size={20} />,
-    text: "Born Feb 11, 2008",
+    icon: <Briefcase size={20} />,
+    text: "AI engineering roles & client engagements",
   },
   {
     icon: <GraduationCap size={20} />,
-    text: "GIAIC — AI-201 → AI-202 → AI-301",
-  },
-  {
-    icon: <Briefcase size={20} />,
-    text: "Available for freelance",
+    text: "BS Computer Science — Virtual University",
   },
 ];
 
@@ -42,14 +28,14 @@ const qualifications = [
     title: "Education",
     data: [
       {
-        school: "Jinnah Govt. Boys College",
-        qualification: "Higher Secondary (HSC) — Computer Science",
-        year: "2024 - Present",
+        school: "Virtual University of Pakistan",
+        qualification: "BS Computer Science",
+        year: "Sep 2026 – Present",
       },
       {
-        school: "Bilal Public School",
-        qualification: "Secondary School Certificate (SSC) — Computer Science",
-        year: "2022 - 2024",
+        school: "Jinnah Govt. College, Karachi",
+        qualification: "Computer Science",
+        year: "May 2024 – May 2026",
       },
     ],
   },
@@ -57,16 +43,20 @@ const qualifications = [
     title: "Experience",
     data: [
       {
-        Company: "Freelance — Fiverr",
-        role: "Agentic AI Developer",
-        qualification: "Available for hire",
-        year: "2024 - Present",
+        Company: "Independent Contracts",
+        role: "Forward-Deployed Full-Stack & AI Developer",
+        qualification: "Remote",
+        year: "Nov 2025 – Present",
+        description:
+          "Owned discovery, architecture, delivery, production debugging, and stakeholder iteration for a UK healthcare booking platform. Integrated lead screening into an existing GoDaddy website and handed over deployed systems and operational documentation.",
       },
       {
-        Company: "GIAIC — Governor's Initiative",
-        role: "Cloud-Native Agentic AI Developer",
-        qualification: "AI-201 → AI-202 → AI-301",
-        year: "2024 - Present",
+        Company: "DevoticsLabs",
+        role: "Full-Stack AI Developer",
+        qualification: "Onsite",
+        year: "Jun 2025 – Oct 2025",
+        description:
+          "Built Next.js/React features, Python/FastAPI APIs, authentication, databases, and third-party integrations. Integrated LLM APIs and supported deployment and production debugging.",
       },
     ],
   },
@@ -86,7 +76,7 @@ const About = () => {
           <div className="w-full flex justify-center items-center">
             <Tabs
               defaultValue="Personal-Info"
-              className="w-[800px] flex justify-center items-center flex-col"
+              className="w-full max-w-[1000px] flex justify-center items-center flex-col"
             >
               <TabsList className=" grid justify-between place-items-center xl:grid-cols-3 xl:border dark:md:border-none lg:gap-x-14 gap-y-3">
                 <TabsTrigger className="w-[162px]" value="Personal-Info">
@@ -106,14 +96,23 @@ const About = () => {
                   <div className="flex justify-center items-center flex-col text-center xl:text-left">
                     <h3 className="h3 mb-4 text-center">Personal Info</h3>
                     <p className="subtitle w-auto mx-auto xl:mx-0 text-center">
-                      Self-taught Agentic AI Developer from Karachi, Pakistan.
-                      I build production-grade multi-agent systems and
-                      full-stack applications for international clients.
-                      Currently on the GIAIC Cloud-Native Agentic AI Developer
-                      roadmap, working with OpenAI Agents SDK, Claude Agent
-                      SDK, FastAPI, and RAG pipelines. Available for freelance
-                      — agentic AI systems, full-stack apps, and n8n automation.
+                      Forward-Deployed AI Engineer building customer-facing AI
+                      systems from business requirements. I work across
+                      discovery, architecture, agents, APIs, data
+                      infrastructure, and deployment, then iterate with
+                      stakeholders on the production system. My work spans
+                      multi-tenant AI SaaS, agentic RAG, and client platforms
+                      built with Python, TypeScript, Next.js, FastAPI, and
+                      PostgreSQL.
                     </p>
+                    <div className="mt-6 max-w-2xl text-center">
+                      <h4 className="font-semibold mb-2">Certifications</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Claude Academy: AI Fluency — Framework and Foundations,
+                        Claude 101, Claude Code 101; Understanding Agentic AI —
+                        Agent Academy.AI.
+                      </p>
+                    </div>
                     {/* Icons */}
                     <div className="grid xl:place-items-start grid-cols-2 text-wrap text-center gap-x-10 gap-y-4 mb-12 mt-10">
                       {info.map((items, index) => (
@@ -138,7 +137,7 @@ const About = () => {
                   <div>
                     <h3 className="h3 mb-8 text-center">My Journey</h3>
                     {/* education & experience */}
-                    <div className="flex flex-col justify-between lg:flex-row gap-x-28">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
                       {/* Experience */}
                       <div className="flex flex-col gap-y-6">
                         <div className="flex gap-x-4 items-center text-primary text-[22px]">
@@ -155,24 +154,29 @@ const About = () => {
                                 item;
                               return (
                                 <div className="group" key={index}>
-                                  <div className="font-semibold text-xl relative leading-none mb-2">
+                                  <div className="font-semibold text-xl relative leading-snug mb-2">
                                     <div className="bg-orange-600  w-[10px] h-[10px] rounded-full absolute left-[-35px] z-10 transition-all duration-500 top-1/2 -translate-y-1/2 group-hover:top-[85px]"></div>
                                     <div className="h-[75px] w-[2px] bg-slate-300 absolute top-[15px] -left-[31px]"></div>
                                     {Company}
                                   </div>
-                                  <div className="text-lg font-medium leading-none mb-4">
+                                  <div className="text-lg font-medium leading-snug mb-4">
                                     {role}
                                     {" - "}
-                                    <span className="text-base text-muted dark:text-white">
+                                    <span className="text-base text-muted-foreground">
                                       {qualification}
                                     </span>
                                   </div>
-                                  <div className="text-base text-muted-foreground mb-10">
+                                  <div className="text-base text-muted-foreground mb-4">
                                     {year}
                                   </div>
+                                  {item.description && (
+                                    <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mb-8">
+                                      {item.description}
+                                    </p>
+                                  )}
                                 </div>
                               );
-                            }
+                            },
                           )}
                         </div>
                       </div>
@@ -191,20 +195,25 @@ const About = () => {
                               const { school, year, qualification } = item;
                               return (
                                 <div className="group" key={index}>
-                                  <div className="font-semibold text-xl relative leading-none mb-2">
+                                  <div className="font-semibold text-xl relative leading-snug mb-2">
                                     <div className="bg-orange-600  w-[10px] h-[10px] rounded-full absolute left-[-35px] z-10 transition-all duration-500 top-1/2 -translate-y-1/2 group-hover:top-[85px]"></div>
                                     <div className="h-[75px] w-[2px] bg-slate-300 absolute top-[15px] -left-[31px]"></div>
                                     {school}
                                   </div>
-                                  <div className="text-lg font-medium leading-none mb-4">
+                                  <div className="text-lg font-medium leading-snug mb-4">
                                     {qualification}
                                   </div>
-                                  <div className="text-base text-muted-foreground mb-10">
+                                  <div className="text-base text-muted-foreground mb-4">
                                     {year}
                                   </div>
+                                  {item.description && (
+                                    <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mb-8">
+                                      {item.description}
+                                    </p>
+                                  )}
                                 </div>
                               );
-                            }
+                            },
                           )}
                         </div>
                       </div>

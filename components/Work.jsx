@@ -45,8 +45,17 @@ const StackTag = ({ label }) => (
   </span>
 );
 
-const FeaturedCard = ({ project }) => {
-  const { image, noImage, isPrivate, category, name, description, stack, link } = project;
+export const FeaturedCard = ({ project }) => {
+  const {
+    image,
+    noImage,
+    isPrivate,
+    category,
+    name,
+    description,
+    stack,
+    link,
+  } = project;
 
   return (
     <motion.div
@@ -77,6 +86,18 @@ const FeaturedCard = ({ project }) => {
             {description}
           </p>
 
+          {project.highlights && (
+            <dl className="grid gap-4 mb-8">
+              {project.highlights.map(({ title, text }) => (
+                <div key={title}>
+                  <dt className="text-sm font-semibold mb-1">{title}</dt>
+                  <dd className="text-sm text-muted-foreground leading-relaxed">
+                    {text}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )}
           {/* Divider */}
           <div className="border-t border-border/60 pt-6 mt-auto space-y-5">
             {/* Stack */}
@@ -111,7 +132,7 @@ const FeaturedCard = ({ project }) => {
         </div>
 
         {/* Visual */}
-        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden">
+        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden bg-muted">
           {noImage ? (
             <AIVisual isPrivate={isPrivate} />
           ) : (
@@ -119,7 +140,8 @@ const FeaturedCard = ({ project }) => {
               src={image}
               alt={name}
               fill
-              className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              className="object-contain object-center group-hover:scale-[1.03] transition-transform duration-500"
             />
           )}
         </div>
@@ -129,7 +151,16 @@ const FeaturedCard = ({ project }) => {
 };
 
 const MiniCard = ({ project, index }) => {
-  const { image, noImage, isPrivate, category, name, description, stack, link } = project;
+  const {
+    image,
+    noImage,
+    isPrivate,
+    category,
+    name,
+    description,
+    stack,
+    link,
+  } = project;
   const num = String(index + 2).padStart(2, "0");
 
   return (
@@ -162,7 +193,9 @@ const MiniCard = ({ project, index }) => {
       <div className="flex flex-col flex-1 p-5 gap-3">
         <div className="space-y-1.5">
           <CategoryBadge label={category} />
-          <h3 className="text-base font-semibold tracking-tight leading-snug pt-0.5">{name}</h3>
+          <h3 className="text-base font-semibold tracking-tight leading-snug pt-0.5">
+            {name}
+          </h3>
           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
             {description}
           </p>

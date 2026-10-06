@@ -19,19 +19,18 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Abdul Samad Siddiqui | Full Stack AI Agent Developer — Karachi",
+    default: "Abdul Samad Siddiqui | Forward-Deployed AI Engineer — Karachi",
     template: "%s | Abdul Samad Siddiqui",
   },
   description:
-    "Abdul Samad Siddiqui is a Full Stack AI Agentic Developer from Karachi, Pakistan. Building production-grade multi-agent systems, RAG pipelines, and full-stack apps with OpenAI Agents SDK, Claude Agent SDK, Next.js, and FastAPI.",
+    "Abdul Samad Siddiqui is a Forward-Deployed AI Engineer from Karachi, Pakistan. Turning business requirements into deployed AI agents, RAG systems, and customer integrations. Builder of IronhausAI.",
   keywords: [
     "Abdul Samad Siddiqui",
-    "Full Stack AI Agent Developer",
-    "AI Agent Developer",
-    "Full Stack AI Agentic Developer",
-    "Agentic AI Developer",
-    "AI Developer Pakistan",
-    "AI Developer Karachi",
+    "Forward-Deployed AI Engineer",
+    "AI Engineer",
+    "Agentic Systems",
+    "AI Engineer Pakistan",
+    "AI Engineer Karachi",
     "OpenAI Agents SDK developer",
     "Claude Agent SDK",
     "Next.js developer",
@@ -62,24 +61,24 @@ export const metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Abdul Samad Siddiqui",
-    title: "Abdul Samad Siddiqui | Full Stack AI Agent Developer",
+    title: "Abdul Samad Siddiqui | Forward-Deployed AI Engineer",
     description:
-      "18yo Full Stack AI Agentic Developer from Karachi building production-grade multi-agent systems and full-stack apps for clients across the UK, US, and UAE.",
+      "Forward-Deployed AI Engineer from Karachi building production-grade multi-agent systems and full-stack apps from business discovery through deployment.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Abdul Samad Siddiqui — Full Stack AI Agent Developer",
+        alt: "Abdul Samad Siddiqui — Forward-Deployed AI Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdul Samad Siddiqui | Full Stack AI Agent Developer",
+    title: "Abdul Samad Siddiqui | Forward-Deployed AI Engineer",
     description:
-      "18yo Full Stack AI Agentic Developer from Karachi building production-grade multi-agent systems and full-stack apps.",
-    images: ["/og-image.png"],
+      "Forward-Deployed AI Engineer from Karachi building production-grade multi-agent systems and full-stack apps.",
+    images: ["/opengraph-image"],
     creator: "@abdulsamad_ai",
   },
   icons: {
@@ -104,9 +103,9 @@ const personSchema = {
     "https://www.fiverr.com/abdulsamadgamin",
     "https://www.upwork.com/freelancers/~0111be282ff319fcf5",
   ],
-  jobTitle: "Full Stack AI Agent Developer",
+  jobTitle: "Forward-Deployed AI Engineer",
   description:
-    "Self-taught Full Stack AI Agentic Developer from Karachi, Pakistan. Building production-grade multi-agent systems, RAG pipelines, and full-stack applications using OpenAI Agents SDK, Claude Agent SDK, Next.js, and FastAPI.",
+    "Forward-Deployed AI Engineer from Karachi, Pakistan. Building production-grade multi-agent systems, RAG pipelines, and full-stack applications using OpenAI Agents SDK, Claude Agent SDK, Next.js, and FastAPI.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Karachi",
@@ -133,7 +132,7 @@ const websiteSchema = {
   name: "Abdul Samad Siddiqui",
   url: siteUrl,
   description:
-    "Portfolio of Abdul Samad Siddiqui — Full Stack AI Agent Developer from Karachi, Pakistan.",
+    "Portfolio of Abdul Samad Siddiqui — Forward-Deployed AI Engineer from Karachi, Pakistan.",
   author: {
     "@type": "Person",
     name: "Abdul Samad Siddiqui",

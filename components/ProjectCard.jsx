@@ -40,7 +40,6 @@ const ProjectCard = ({ project, index = 0 }) => {
       className="h-full"
     >
       <div className="group h-full flex flex-col rounded-2xl border border-border hover:border-primary/40 bg-card overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-
         {/* Image / visual area */}
         <div className="relative h-[210px] overflow-hidden bg-muted shrink-0">
           {/* Category badge */}
@@ -89,13 +88,12 @@ const ProjectCard = ({ project, index = 0 }) => {
 
         {/* Content */}
         <div className="flex flex-col flex-1 p-5 gap-3">
-
           {/* Title + description */}
           <div className="space-y-1.5">
             <h4 className="text-base font-semibold tracking-tight leading-snug group-hover:text-primary transition-colors duration-200">
               {project.name}
             </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {project.description}
             </p>
           </div>

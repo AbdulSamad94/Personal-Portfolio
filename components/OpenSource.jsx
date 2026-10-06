@@ -4,28 +4,16 @@ import { GitMerge, Github } from "lucide-react";
 
 const contributions = [
   {
-    repo: "openai/openai-agents-python",
-    label: "PR Merged",
-    description:
-      "Merged PR into the official OpenAI Agents SDK — one of the core repositories for building production agentic systems.",
-  },
-  {
     repo: "FlowiseAI/Flowise",
-    label: "PR Merged",
+    label: "6 Merged PRs",
     description:
-      "Merged multiple PRs into Flowise, the open-source LLM flow builder used by thousands of developers.",
+      "Added OpenAI and Anthropic model support, including GPT-5.5/5.5 Pro and Claude Opus 4.7. Fixed pricing and model identifiers across OpenAI, Mistral, Cohere, Groq, Bedrock, and Perplexity.",
   },
   {
-    repo: "simple-icons/simple-icons",
-    label: "Icon Added",
+    repo: "openai/openai-agents-python",
+    label: "2 Merged PRs",
     description:
-      "Submitted the FlowiseAI brand icon to Simple Icons — now available in icon packs used across the web.",
-  },
-  {
-    repo: "Various repositories",
-    label: "Active Contributor",
-    description:
-      "Multiple additional merged contributions across open-source projects in the AI and developer tooling ecosystem.",
+      "Aligned developer documentation examples with the current repository structure and corrected formatting across tool documentation.",
   },
 ];
 

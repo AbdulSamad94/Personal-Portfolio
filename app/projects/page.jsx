@@ -2,7 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/ProjectCard";
-import { tier1Projects, tier2Projects } from "@/lib/utils/variables";
+import {
+  tier1Projects,
+  clientProjects,
+  tier2Projects,
+} from "@/lib/utils/variables";
 
 const TierDivider = ({ label, primary }) => (
   <div className="flex items-center gap-4 mb-8">
@@ -20,11 +24,12 @@ const TierDivider = ({ label, primary }) => (
   </div>
 );
 
+import { FeaturedCard } from "@/components/Work";
+
 const Projects = () => {
   return (
     <section className="min-h-screen py-14">
       <div className="container mx-auto px-4 md:px-8">
-
         {/* Page header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,13 +58,24 @@ const Projects = () => {
           className="mb-20"
         >
           <TierDivider label="AI & Agentic Projects" primary />
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {tier1Projects.map((project, index) => (
+          <div className="mb-8">
+            <FeaturedCard project={tier1Projects[0]} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            {tier1Projects.slice(1).map((project, index) => (
               <ProjectCard key={project.name} project={project} index={index} />
             ))}
           </div>
         </motion.div>
 
+        <div className="mb-20">
+          <TierDivider label="Client Delivery" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {clientProjects.map((project, index) => (
+              <ProjectCard key={project.name} project={project} index={index} />
+            ))}
+          </div>
+        </div>
         {/* Tier 2 — Full-Stack Projects */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -68,14 +84,13 @@ const Projects = () => {
           transition={{ duration: 0.3 }}
           className="mb-24"
         >
-          <TierDivider label="Full-Stack Projects" />
+          <TierDivider label="Earlier Full-Stack Projects" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {tier2Projects.map((project, index) => (
               <ProjectCard key={project.name} project={project} index={index} />
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
