@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Projects",
   description:
-    "Explore Abdul Samad Siddiqui's portfolio — production-grade AI agents, multi-agent systems, RAG pipelines, and full-stack applications built with Next.js, FastAPI, OpenAI Agents SDK, and Claude Agent SDK.",
+    "Explore IronhausAI, LegalyzeAI, Cognita, and client-delivery work by Forward-Deployed AI Engineer Abdul Samad Siddiqui. AI agents, business integrations, and deployed platforms.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
   },

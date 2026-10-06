@@ -20,15 +20,15 @@ const servicesData = [
   },
   {
     icon: <GanttChartSquare size={72} strokeWidth={0.8} />,
-    title: "Full-Stack Development",
+    title: "AI Integrations & Platforms",
     description:
-      "Production-ready applications with Next.js and FastAPI. From database design to deployment — end-to-end, TypeScript-first, and built to scale.",
+      "Connect AI to customer workflows with Next.js, FastAPI, PostgreSQL, authentication, APIs, and external channels. Build the application around the operational needs.",
   },
   {
     icon: <Gem size={72} strokeWidth={0.8} />,
-    title: "Frontend UI/UX",
+    title: "Discovery to Deployment",
     description:
-      "Responsive, accessible, and visually sharp interfaces using React, Tailwind CSS, and ShadCN UI. Pixel-perfect implementation from design to production.",
+      "Translate stakeholder conversations into technical scope, architecture, and working software. Own deployment, production debugging, documentation, and iterations from client feedback.",
   },
 ];
 

@@ -5,14 +5,14 @@ import { MailIcon, HomeIcon, PhoneCall } from "lucide-react";
 export const metadata = {
   title: "Contact",
   description:
-    "Get in touch with Abdul Samad Siddiqui — Full Stack AI Agent Developer available for freelance work in agentic AI systems, full-stack applications, and n8n automation.",
+    "Get in touch with Abdul Samad Siddiqui — Forward-Deployed AI Engineer open to AI engineering roles and client engagements in agents, integrations, and production systems.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
   },
   openGraph: {
     title: "Contact | Abdul Samad Siddiqui",
     description:
-      "Open to freelance work — agentic AI systems, full-stack applications, and n8n automation. Send a message and I'll get back promptly.",
+      "Open to Forward-Deployed AI Engineer roles and client engagements. Let’s discuss your team or business workflow.",
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
   },
 };
@@ -31,9 +31,9 @@ const ContactPage = () => {
             </div>
             <h1 className="h1 max-w-md mb-8">Let's Work Together.</h1>
             <p className="max-w-[400px] subtitle">
-              Open to freelance work — agentic AI systems, full-stack
-              applications, and n8n automation. If you have a project in mind,
-              send a message and I will get back to you promptly.
+              Open to Forward-Deployed AI Engineer roles and client engagements.
+              If your team needs someone to turn business requirements into
+              working AI systems, send me a message.
             </p>
           </div>
           {/* Img */}
