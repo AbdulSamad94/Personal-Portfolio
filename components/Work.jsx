@@ -46,16 +46,7 @@ const StackTag = ({ label }) => (
 );
 
 export const FeaturedCard = ({ project }) => {
-  const {
-    image,
-    noImage,
-    isPrivate,
-    category,
-    name,
-    description,
-    stack,
-    link,
-  } = project;
+  const { image, noImage, isPrivate, name, description, link } = project;
 
   return (
     <motion.div
@@ -65,86 +56,45 @@ export const FeaturedCard = ({ project }) => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative rounded-2xl border border-border hover:border-primary/40 bg-card overflow-hidden hover:shadow-xl transition-all duration-300"
     >
-      <div className="grid grid-cols-1 items-center lg:grid-cols-[1fr_1fr]">
-        {/* Content */}
-        <div className="flex flex-col p-7 lg:p-10 lg:border-r border-b lg:border-b-0 border-border/60">
-          {/* Top row: badge + number */}
-          <div className="flex items-center justify-between mb-6">
-            <CategoryBadge label={category} />
-            <span className="text-xs font-mono font-bold text-muted-foreground/30 tracking-widest">
-              01
-            </span>
-          </div>
+      <div className="relative aspect-video w-full overflow-hidden bg-muted">
+        {noImage ? (
+          <AIVisual isPrivate={isPrivate} />
+        ) : (
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="100vw"
+            className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+          />
+        )}
+      </div>
 
-          {/* Title */}
-          <h3 className="text-2xl lg:text-3xl font-bold tracking-tight leading-tight mb-3">
+      <div className="flex flex-col gap-3 p-5 sm:p-6">
+        <div>
+          <h3 className="text-2xl font-bold tracking-tight leading-tight mb-2">
             {name}
           </h3>
-
-          {/* Description */}
-          <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {description}
           </p>
-
-          {project.highlights && (
-            <dl className="grid gap-4 mb-8">
-              {project.highlights.map(({ title, text }) => (
-                <div key={title}>
-                  <dt className="text-sm font-semibold mb-1">{title}</dt>
-                  <dd className="text-sm text-muted-foreground leading-relaxed">
-                    {text}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          )}
-          {/* Divider */}
-          <div className="border-t border-border/60 pt-6 mt-auto space-y-5">
-            {/* Stack */}
-            <div>
-              <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground/50 mb-2.5">
-                Built with
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {stack.map((tech) => (
-                  <StackTag key={tech} label={tech} />
-                ))}
-              </div>
-            </div>
-
-            {/* CTA */}
-            {link ? (
-              <Link
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-              >
-                Visit Project <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-                <Lock className="w-3.5 h-3.5" />
-                Private Build
-              </span>
-            )}
-          </div>
         </div>
 
-        {/* Visual */}
-        <div className="relative mx-5 mb-5 h-[180px] overflow-hidden rounded-xl bg-muted sm:mx-8 sm:h-[240px] lg:mx-8 lg:my-8 lg:h-[320px]">
-          {noImage ? (
-            <AIVisual isPrivate={isPrivate} />
-          ) : (
-            <Image
-              src={image}
-              alt={name}
-              fill
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-contain object-center group-hover:scale-[1.03] transition-transform duration-500"
-            />
-          )}
-        </div>
+        {link ? (
+          <Link
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          >
+            Visit Project <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+            <Lock className="w-3.5 h-3.5" />
+            Private Build
+          </span>
+        )}
       </div>
     </motion.div>
   );
