@@ -65,7 +65,7 @@ export const FeaturedCard = ({ project }) => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative rounded-2xl border border-border hover:border-primary/40 bg-card overflow-hidden hover:shadow-xl transition-all duration-300"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr]">
+      <div className="grid grid-cols-1 items-center lg:grid-cols-[1fr_1fr]">
         {/* Content */}
         <div className="flex flex-col p-7 lg:p-10 lg:border-r border-b lg:border-b-0 border-border/60">
           {/* Top row: badge + number */}
@@ -132,7 +132,7 @@ export const FeaturedCard = ({ project }) => {
         </div>
 
         {/* Visual */}
-        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden bg-muted">
+        <div className="relative mx-5 mb-5 h-[180px] overflow-hidden rounded-xl bg-muted sm:mx-8 sm:h-[240px] lg:mx-8 lg:my-8 lg:h-[320px]">
           {noImage ? (
             <AIVisual isPrivate={isPrivate} />
           ) : (
