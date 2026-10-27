@@ -119,6 +119,7 @@ export const FeaturedCard = ({ project }) => {
               src={image}
               alt={name}
               fill
+              sizes="(min-width: 1024px) 55vw, 100vw"
               className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
             />
           )}
