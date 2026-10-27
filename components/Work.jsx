@@ -46,16 +46,7 @@ const StackTag = ({ label }) => (
 );
 
 export const FeaturedCard = ({ project }) => {
-  const {
-    image,
-    noImage,
-    isPrivate,
-    category,
-    name,
-    description,
-    stack,
-    link,
-  } = project;
+  const { image, noImage, isPrivate, category, name, description, stack, link } = project;
 
   return (
     <motion.div
@@ -86,18 +77,6 @@ export const FeaturedCard = ({ project }) => {
             {description}
           </p>
 
-          {project.highlights && (
-            <dl className="grid gap-4 mb-8">
-              {project.highlights.map(({ title, text }) => (
-                <div key={title}>
-                  <dt className="text-sm font-semibold mb-1">{title}</dt>
-                  <dd className="text-sm text-muted-foreground leading-relaxed">
-                    {text}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          )}
           {/* Divider */}
           <div className="border-t border-border/60 pt-6 mt-auto space-y-5">
             {/* Stack */}
@@ -132,7 +111,7 @@ export const FeaturedCard = ({ project }) => {
         </div>
 
         {/* Visual */}
-        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden bg-muted">
+        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden">
           {noImage ? (
             <AIVisual isPrivate={isPrivate} />
           ) : (
@@ -140,8 +119,7 @@ export const FeaturedCard = ({ project }) => {
               src={image}
               alt={name}
               fill
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-contain object-center group-hover:scale-[1.03] transition-transform duration-500"
+              className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
             />
           )}
         </div>
