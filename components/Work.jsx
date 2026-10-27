@@ -46,7 +46,7 @@ const StackTag = ({ label }) => (
 );
 
 export const FeaturedCard = ({ project }) => {
-  const { image, noImage, isPrivate, name, description, link } = project;
+  const { image, noImage, isPrivate, category, name, description, stack, link } = project;
 
   return (
     <motion.div
@@ -56,45 +56,73 @@ export const FeaturedCard = ({ project }) => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative rounded-2xl border border-border hover:border-primary/40 bg-card overflow-hidden hover:shadow-xl transition-all duration-300"
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-muted">
-        {noImage ? (
-          <AIVisual isPrivate={isPrivate} />
-        ) : (
-          <Image
-            src={image}
-            alt={name}
-            fill
-            sizes="100vw"
-            className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
-          />
-        )}
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr]">
+        {/* Content */}
+        <div className="flex flex-col p-7 lg:p-10 lg:border-r border-b lg:border-b-0 border-border/60">
+          {/* Top row: badge + number */}
+          <div className="flex items-center justify-between mb-6">
+            <CategoryBadge label={category} />
+            <span className="text-xs font-mono font-bold text-muted-foreground/30 tracking-widest">
+              01
+            </span>
+          </div>
 
-      <div className="flex flex-col gap-3 p-5 sm:p-6">
-        <div>
-          <h3 className="text-2xl font-bold tracking-tight leading-tight mb-2">
+          {/* Title */}
+          <h3 className="text-2xl lg:text-3xl font-bold tracking-tight leading-tight mb-3">
             {name}
           </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+
+          {/* Description */}
+          <p className="text-sm text-muted-foreground leading-relaxed mb-8">
             {description}
           </p>
+
+          {/* Divider */}
+          <div className="border-t border-border/60 pt-6 mt-auto space-y-5">
+            {/* Stack */}
+            <div>
+              <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground/50 mb-2.5">
+                Built with
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {stack.map((tech) => (
+                  <StackTag key={tech} label={tech} />
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            {link ? (
+              <Link
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                Visit Project <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                <Lock className="w-3.5 h-3.5" />
+                Private Build
+              </span>
+            )}
+          </div>
         </div>
 
-        {link ? (
-          <Link
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-          >
-            Visit Project <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-        ) : (
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-            <Lock className="w-3.5 h-3.5" />
-            Private Build
-          </span>
-        )}
+        {/* Visual */}
+        <div className="relative h-[260px] lg:h-auto min-h-[320px] overflow-hidden">
+          {noImage ? (
+            <AIVisual isPrivate={isPrivate} />
+          ) : (
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+            />
+          )}
+        </div>
       </div>
     </motion.div>
   );
